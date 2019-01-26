@@ -1,0 +1,10 @@
+com\programcreek\helloworld\controller\HelloWorldController.class
+com\programcreek\helloworld\model\Subject.class
+com\programcreek\helloworld\repository\BookRepository.class
+com\programcreek\helloworld\repository\SubjectRepository.class
+com\programcreek\helloworld\service\ApplicationConfig.class
+com\programcreek\helloworld\service\SubjectService.class
+com\programcreek\helloworld\config\DataConfig.class
+com\programcreek\helloworld\service\BookService.class
+com\programcreek\helloworld\model\Book.class
+com\programcreek\helloworld\service\PrototypeScopedBeanFactoryPostProcessor.class
