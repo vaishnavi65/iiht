@@ -1,0 +1,107 @@
+<html>
+<head>
+<script src='http://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.js'></script>
+<script src='http://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular-resource.js'></script>
+</head>
+<body>
+<form ng-app="testApp" ng-controller="testController">
+<h2>This is a restful webservice with Angular JS sample</h2>
+</BR>
+<button ng-click="getRequest()">Test Get</button></BR>
+</BR>
+</BR>
+<input type="number" name="name" ng-model="inputValue" />
+<button ng-click="getRequestById(inputValue)">Test Get by id</button></BR>
+</BR>
+</BR>
+<button ng-click="getPostRequest()">Test Post</button></BR>
+</BR>
+</BR>
+<button ng-click="getPutRequest()">Test Put</button></BR>
+</BR>
+</BR>
+<button ng-click="getDeleteRequest()">Test Delete</button></BR>
+</BR>
+output:
+<p>{{response}}</p>
+<p>{{response1}}</p>
+<p>{{response2}}</p>
+<p>{{response3}}</p>
+<p>{{response4}}</p>
+</form>
+<script>
+var testApp = angular.module('testApp', []);
+testApp.controller('testController' , function ($scope, $http) {
+$scope.response="";
+$scope.response1 = "";
+$scope.response2 = "";
+$scope.response3 = "";
+$scope.response4 = "";
+$scope.getRequest = function () {
+console.log("I've been pressed!");  
+$http.get("http://localhost:8090/HelloWorld/rest/books/") .then(function successCallback(response){
+$scope.response = response;
+$scope.response1 = "";
+$scope.response2 = "";
+$scope.response3 = "";
+$scope.response4 = "";
+}, function errorCallback(response){
+console.log("Unable to perform get request");
+});
+};
+
+$scope.getRequestById = function (id) {
+console.log("I've been pressed!");  
+$http.get("https://jsonplaceholder.typicode.com/posts/"+id) .then(function successCallback(response){
+$scope.response1 = response;
+$scope.response = "";
+$scope.response2 = "";
+$scope.response3 = "";
+$scope.response4 = "";
+}, function errorCallback(response){
+console.log("Unable to perform get request");
+});
+};
+$scope.getPostRequest = function () {
+console.log("I've been pressed!");  
+$http.post("https://jsonplaceholder.typicode.com/posts") .then(function successCallback(response){
+$scope.response2 = response;
+$scope.response = "";
+$scope.response = "";
+$scope.response3 = "";
+$scope.response4 = "";
+}, function errorCallback(response){
+console.log("Unable to perform get request");
+});
+};
+
+$scope.getPostRequest = function () {
+console.log("I've been pressed!");  
+$http.put("https://jsonplaceholder.typicode.com/posts/1") .then(function successCallback(response){
+$scope.response3 = response;
+$scope.response = "";
+$scope.response1 = "";
+$scope.response2 = "";
+$scope.response4 = "";
+}, function errorCallback(response){
+console.log("Unable to perform get request");
+});
+};
+
+$scope.getPostRequest = function () {
+console.log("I've been pressed!");  
+$http.delete("https://jsonplaceholder.typicode.com/posts/1") .then(function successCallback(response){
+$scope.response4 = response;
+$scope.response = "";
+$scope.response1= "";
+$scope.response2 = "";
+$scope.response3 = "";
+}, function errorCallback(response){
+console.log("Unable to perform get request");
+});
+};
+
+});
+</script>
+</body>
+</html>
